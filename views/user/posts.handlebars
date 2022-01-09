@@ -1,0 +1,11 @@
+<div class="container">
+    {{#each posts}}
+        <div class="container-card">
+            <h2 class="container-card-post-title">{{title}}</h2>
+            <small class="container-card-post-date">Postado em: {{date}}</small>
+            <p class="container-card-post-body">{{body}}</p>
+        </div>
+    {{else}}
+        <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
+    {{/each}}
+</div>
