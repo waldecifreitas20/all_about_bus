@@ -11,7 +11,8 @@ router.post('/add', async (req, res) => {
     const userData = {
         username : req.body.username,
         email : req.body.email,
-        password : req.body.password
+        password : req.body.password,
+        logged : true
     }    
 
     const errors = {}
@@ -34,7 +35,6 @@ router.post('/add', async (req, res) => {
 
         if (!isExist) {
             new UserModel(userData).save().then((user) => {
-                req.flash('userLogged', true)
                 res.redirect(`/users/${user._id}`)
             }).catch(err => {
                 req.flash('error_msg', 'Erro ao salvar no banco')

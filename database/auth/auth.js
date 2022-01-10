@@ -9,8 +9,7 @@ async function checkEmailExistence(email) {
         if (user == null) {
             _response = false
         } else {
-            _response = true
-        
+            _response = true        
         }           
     }).catch(console.error)
     return _response
