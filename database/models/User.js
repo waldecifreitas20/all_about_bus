@@ -16,6 +16,10 @@ const userSchema = db.Schema({
     admin : {
         type : Boolean,
         require : false
+    },
+    logged : {
+        type : Boolean,
+        require : false
     }
 })
 

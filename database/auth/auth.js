@@ -1,10 +1,10 @@
 const UserModel = require('../models/User')
 
-async function checkEmailExistence(data) {
+async function checkEmailExistence(email) {
     let _response
 
     await UserModel.findOne({
-        email : data.email,
+        email : email,
     }).then(user => {
         if (user == null) {
             _response = false
@@ -13,13 +13,11 @@ async function checkEmailExistence(data) {
         
         }           
     }).catch(console.error)
-
     return _response
 }
 
 async function authenticate(data) {
     let _response
-
     await UserModel.findOne({
         email : data.email,
         password : data.password

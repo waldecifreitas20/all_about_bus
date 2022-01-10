@@ -1,28 +1,38 @@
 <nav class="navbar">
+{{#if user.logged}}
    <div class="navbar-left">
-        <div class="navbar-logo">
-            <a href="/"><div class="image-logo"></div></a>
-        </div>
+        <a href="/" class="navbar-logo">
+           <div class="image-logo"></div>
+        </a>
         <div class="navbar-options">
             <ul class="navbar-menu">
                 <li class="navbar-menu-item"><a href="/">Home</a></li>
-                <li class="navbar-menu-item"><a href="/posts">Atualizar</a></li>
+                <li class="navbar-menu-item"><a href="/posts">Editar Dados</a></li>
+                <li class="navbar-menu-item"><a href="/register">Fazer postagem</a></li>
+                <li class="navbar-menu-item"><a href="/login">Sair</a></li>
+            </ul>
+        </div>
+   </div>
+{{else}}
+    <div class="navbar-left">
+        <a href="/" class="navbar-logo">
+           <div class="image-logo"></div>
+        </a>
+        <div class="navbar-options">
+            <ul class="navbar-menu">
+                <li class="navbar-menu-item"><a href="/">Home</a></li>
                 <li class="navbar-menu-item"><a href="/register">Cadastrar-se</a></li>
                 <li class="navbar-menu-item"><a href="/login">Fazer Login</a></li>
             </ul>
         </div>
    </div>
+{{/if}} 
     <div class="navbar-right">
         <div class="navbar-search-block">
             <input type="text" class="navbar-input-search" placeholder="Buscar por titulo">
-            <button class="navbar-btn-search">Pesquisar</button>
+            <button class="navbar-btn">Pesquisar</button>
         </div>
-        {{#if user.logged}}
-        <div class="navbar-floatmenu">
-            <ul class="navbar-floatmenu-user">
-                <li class="navbar-floatmenu-item"><a href="/register">Editar dados</a></li>
-            </ul>
-        </div>
-        {{/if}}
+        
     </div>
+
 </nav>

@@ -1,0 +1,11 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--var-color-orange-primary);
+    box-shadow: 1px 5px 10px var(--var-color-shadow);
+    z-index: 2;
+}

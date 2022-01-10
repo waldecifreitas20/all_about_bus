@@ -5,16 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
+    
     <link rel="stylesheet" href="/css/styles/big.css">
     <link rel="stylesheet" href="/css/styles/medium.css">
     <link rel="stylesheet" href="/css/styles/small.css">
+
+    <link rel="stylesheet" href="/css/styles/navbar/main-navbar.css">
+    <link rel="stylesheet" href="/css/styles/navbar/big-navbar.css">
+    
     <title>{{>_sitetitle}}</title>
 </head>
 <body>
     {{>_navbar}}
-    {{>_msg}}
     <div id="page-landing">
+        {{>_msg}}
         {{{body}}}
+
     </div>
 </body>
 <script src="/js/main.js"></script>
