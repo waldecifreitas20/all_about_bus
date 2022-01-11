@@ -4,7 +4,7 @@ const auth = require('../database/auth/auth')
 const UserModel = require('../database/models/User')
 
 router.get('/', (req, res) => {
-    res.render('register')
+    res.render('registerpage')
 })
 
 router.post('/add', async (req, res) => {
@@ -28,7 +28,7 @@ router.post('/add', async (req, res) => {
     }
     
     if (errors.length > 0) {
-            req.flash('error_msg', errors)            
+        req.flash('error_msg', errors)            
         res.redirect('/register')
     } else {
         const isExist = await auth.checkEmailExistence(userData.email)

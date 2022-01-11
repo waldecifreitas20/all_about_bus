@@ -7,9 +7,10 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const bodyParser = require('body-parser')
 
-const loginRouter = require('./routes/login')
+const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const registerRouter = require('./routes/register')
+
 //Settings
     //Body-parser
     app.use(bodyParser.urlencoded({extended: false}))
@@ -40,7 +41,7 @@ const registerRouter = require('./routes/register')
 //Routes
     //Main
     app.get('/', (req, res) => {
-        res.render('posts')
+        res.render('postspage')
     })   
     app.get('/posts', (req, res) => {
         req.flash('success_msg', 'Página atualizada com sucesso')
@@ -49,7 +50,7 @@ const registerRouter = require('./routes/register')
     //Register
     app.use('/register', registerRouter)
     //Login
-    app.use('/login', loginRouter)
+    app.use('/auth', authRouter)
     //Admin
     app.use('/users', userRouter)
 //Init server

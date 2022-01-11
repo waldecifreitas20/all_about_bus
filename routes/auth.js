@@ -4,14 +4,14 @@ const auth = require('../database/auth/auth')
 const UserModel = require('../database/models/User')
 
 router.get('/', (req, res) => {
-    res.render('login')
+    res.render('loginpage')
 })
 
 router.get('/recovery-pass', (req, res) => {
     res.send('senha recuperada com sucesso')
 })
 
-router.post('/authenticate', async (req, res) => {
+router.post('/login', async (req, res) => {
     const login_data = {
         email : req.body.email,
         password : req.body.password,
@@ -20,10 +20,14 @@ router.post('/authenticate', async (req, res) => {
     console.log(response);
     if (!response.authorized) {
         req.flash('error_msg', 'EMAIL OU SENHA INCORRETOS!')
-        res.redirect('/login')
+        res.redirect('/auth')
     } else {
         response.user.logged = true
-        res.redirect('/users/'+response.user._id)
+        response.user.save().then(() => {
+            res.redirect('/users/'+response.user._id)
+        }).catch(err => {
+            console.log('Uncaugth expected exception: ' + err);
+        })
     }
 })
 
@@ -36,8 +40,8 @@ router.get('/exit/:id', (req, res) => {
             res.redirect('/')
         }).catch(err => {
             console.log('deu merda filhão');
+            res.redirect('/')
         })
-        res.redirect('/')
     }).catch(console.error)
 })
 
