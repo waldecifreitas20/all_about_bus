@@ -1,1 +1,17 @@
-<h1>aqui vai ser p form de criar postagem</h1>
+<div class="container">
+    <div class="form-div">
+
+        <form action="/users/doapost/add/{{user._id}}" method="post" id="form-post" class="form-post">
+            <legend>Criar novo post</legend>
+
+            <input type="text" class="form-input" name="title" id="title" placeholder="Titulo">
+            <textarea name="textBody" class="form-input" id="textBody" placeholder="Texto"></textarea>
+
+        </form>
+        <div class="form-footer">
+            <button type="submit" class="btn btn-success" form="form-post">Salvar</button>
+            <a href="/users/{{user._id}}" class="btn btn-cancel">Cancelar</a>
+        </div>
+    </div>
+</div>
+

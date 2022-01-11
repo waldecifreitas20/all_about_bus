@@ -9,8 +9,10 @@
     --var-color-shadow: rgba(0, 0, 0, 0.377);
     --var-color-error-message: rgb(255, 255, 255);
     --var-color-error-background: rgba(250, 53, 53, 0.747);
+    --var-color-btn-red-background: rgb(255, 4, 4);
+    --var-color-btn-red2-background: rgb(185, 15, 15);
     --var-color-success-message: rgb(0, 0, 0);
-    --var-color-success-background: rgba(25, 241, 115, 0.747);
+    --var-color-success-background: rgba(0, 250, 104, 0.918);
 }
 
 * {
@@ -29,6 +31,11 @@ body {
     width: 100%;
 }
 
+input, textarea {
+    border-style: solid;
+    resize: none;
+}
+
 li {
     display: block;
 }
@@ -36,7 +43,7 @@ li {
 #page-landing {
     position: relative;
     z-index: 1;
-    top: 0;
+    
     background-color: rgba(0, 0, 0, 0.151);
     width: 100%;
     height: 100vh;
@@ -47,7 +54,10 @@ li {
 }
 
 .container {
+    position: relative;
     height: 100%;
+    padding-top: 60px 0;
+    margin: 0;
     width: 90%;  
     display: flex;
     align-items: center;
@@ -56,28 +66,3 @@ li {
 }
 
 
-.msg-block {
-    position: absolute;
-    height: 50px;
-    width: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    top: 100px;
-}
-
-.msg-block-error {
-    background-color: var(--var-color-error-background);
-}
-
-.msg-block-success {
-    background-color: var(--var-color-success-background);
-}
-.success-msg {
-    color: var(--var-color-success-message);
-}
-.error-msg {
-    color: var(--var-color-error-message);
-    font-size: 12px;
-}

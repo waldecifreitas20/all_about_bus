@@ -1,8 +1,7 @@
 <div class="container">
     {{#each posts}}
+            <h2 class="container-card-post-title">Titulo: {{this.title}}</h2>
         <div class="container-card">
-            <h2 class="container-card-post-title">{{title}}</h2>
-            <small class="container-card-post-date">Postado em: {{date}}</small>
             <p class="container-card-post-body">{{body}}</p>
         </div>
     {{else}}

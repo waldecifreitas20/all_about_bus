@@ -49,12 +49,17 @@
 
     .btn {
         height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         width: 100px;
         background-color: var(--var-color-orange-dark);
         border-color: white;
         border-style: solid;
         border-radius: 10px;
         color: white;
+        cursor: pointer;
         transition: all 500ms;
     }
 
@@ -74,5 +79,107 @@
         height: 40px;
         width: 100%;
         margin: 10px 0;
+    }
+
+    
+    .msg-block {
+        position: relative;
+        height: 50px;
+        width: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        margin-top: 60px;
+        margin-bottom: 20px;       
+    }
+    .msg-block-error {
+        background-color: var(--var-color-error-background);
+    }
+
+    .msg-block-success {
+        background-color: var(--var-color-success-background);
+    }
+    .success-msg {
+        color: var(--var-color-success-message);
+    }
+    .error-msg {
+        color: var(--var-color-error-message);
+        font-size: 12px;
+    }
+
+    .btn-success {
+        background-color: var(--var-color-success-background);       
+        height: 40px;
+        width: 100px;
+    }
+    .btn-success a, .btn-cancel a {
+        color: white
+    }
+    .btn-success:hover {
+        color:black;
+        border-color: var(--var-color-success-background);    
+    }
+
+    .btn-cancel {
+        background-color: var(--var-color-btn-red-background);
+    }
+
+    .btn-cancel:hover {
+        background-color: var(--var-color-btn-red2-background);
+    }
+
+    .form-post {
+        display: block;
+        padding: 60px 10px;
+        width: 100%;
+ 
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .form-div{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .form-post legend {
+        text-align: left;
+        font-size: 28px;
+    
+    }
+
+    .form-post legend,.form-input {
+        margin: 5px 0;
+    }
+    
+    .form-input {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .form-post #title {
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .form-post #textBody {
+        height: 150px;
+    }
+
+    .form-footer {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .form-footer .btn {
+        height: 100%;
+        width: 300px;
     }
 }

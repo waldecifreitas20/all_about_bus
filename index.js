@@ -50,8 +50,13 @@ const registerRouter = require('./routes/register')
     app.use('/register', registerRouter)
     //Login
     app.use('/login', loginRouter)
-    //Admin
+    //User
     app.use('/users', userRouter)
+    //Not Found
+    app.get('/:spam', (req, res) => {
+    res.sendFile(__dirname + '/views/notfound.html')
+    })
+
 //Init server
 app.listen(8080, () => {
     console.log("SERVER IT'S ONLINE");

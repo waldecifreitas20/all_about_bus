@@ -29,8 +29,10 @@
 {{/if}} 
     <div class="navbar-right">
         <div class="navbar-search-block">
-            <input type="text" class="navbar-input-search" placeholder="Buscar por titulo">
-            <button class="navbar-btn">Pesquisar</button>
+            <form action="/search-post" method="get">
+                <input type="text" class="navbar-input-search" placeholder="Buscar por titulo">
+                <button class="navbar-btn">Pesquisar</button>
+            </form>
         </div>
         
     </div>
