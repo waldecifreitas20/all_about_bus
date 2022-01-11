@@ -10,6 +10,8 @@ const bodyParser = require('body-parser')
 const loginRouter = require('./routes/login')
 const userRouter = require('./routes/user')
 const registerRouter = require('./routes/register')
+
+const PostModel = require('./database/models/Post')
 //Settings
     //Body-parser
     app.use(bodyParser.urlencoded({extended: false}))
@@ -39,9 +41,14 @@ const registerRouter = require('./routes/register')
 
 //Routes
     //Main
-    app.get('/', (req, res) => {
-        res.render('posts')
-    })   
+    app.get('/', async (req, res) => {
+        await PostModel.find().then(posts => {            
+            res.render('posts', {posts : posts})
+        }).catch(err => {
+            res.render('posts')
+        })
+    })
+
     app.get('/posts', (req, res) => {
         req.flash('success_msg', 'Página atualizada com sucesso')
         res.redirect('/')

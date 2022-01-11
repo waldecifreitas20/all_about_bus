@@ -5,7 +5,7 @@ const postSchema = db.Schema({
         type : String,
         require : true
     },
-    body : {
+    bodyText : {
         type : String,
         require : true
     },

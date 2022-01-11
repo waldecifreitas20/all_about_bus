@@ -54,8 +54,10 @@ li {
 }
 
 .container {
+    border-radius: 10px;
     position: relative;
     height: 100%;
+    top: 80px;
     padding-top: 60px 0;
     margin: 0;
     width: 90%;  

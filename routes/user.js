@@ -48,15 +48,15 @@ router.get('/doapost/:id', async (req, res) => {
 })
 
 router.post('/doapost/add/:id', async (req, res) => {
+    const string = new String('ewwerewre')
     const postData = {
-        title : req.body.title,
-        body : req.body.textBodye,
+        title : "asda",
+        bodyText : "sdse",
         date : Date.now()
     }
-    console.log(req.body.textBodye);
     let error;
     if (postData.title.length < 2) {
-       error = true 
+        error = true 
     } else if(postData.body = '' || typeof postData.body == undefined) {
         error = true     
     }
@@ -65,8 +65,7 @@ router.post('/doapost/add/:id', async (req, res) => {
         req.flash('error_msg', 'Preencha os campos corretamente')
         res.redirect('/users/doapost/' + req.params.id)
     } else {
-        
-        await PostModel(postData).save().then(post => {
+         new PostModel(postData).save().then(post => {
             req.flash('success_msg', 'Post salvo com sucesso')
             res.redirect('/users/' + req.params.id)
         }).catch(err => {
