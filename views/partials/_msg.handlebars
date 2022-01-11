@@ -1,8 +1,10 @@
-<div class="msg-block">
-    {{#if success_msg}}
+{{#if success_msg}}
+    <div class="msg-block msg-block-success">
         <div class="success-msg">{{success_msg}}</div>
-    {{/if}}
-    {{#if error_msg}}
+    </div>
+{{/if}}
+{{#if error_msg}}
+    <div class="msg-block msg-block-error">
         <div class="error-msg">{{error_msg}}</div>
-    {{/if}}
-</div>
+    </div>
+{{/if}}

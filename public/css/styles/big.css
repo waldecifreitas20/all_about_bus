@@ -7,7 +7,7 @@
         text-align: center;
         justify-items: center;
         padding: 20px;
-        box-shadow: 1px -5px 10px black;
+        box-shadow: 1px -5px 10px var(--var-color-shadow);
     }
     
     .input-block {

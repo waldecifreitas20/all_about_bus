@@ -37,7 +37,19 @@ async function authenticate(data) {
     return _response
 }
 
+async function isLogged(idUser) {
+    let _response = false
+    await UserModel.findOne({_id : idUser}).then(user => {
+        if (user.logged) {
+            _response = true
+        }
+    }).catch(console.error)
+
+    return _response
+}
+
 module.exports = {
     authenticate : authenticate,
-    checkEmailExistence : checkEmailExistence
+    checkEmailExistence : checkEmailExistence,
+    isLogged : isLogged
 }

@@ -17,13 +17,18 @@ router.post('/authenticate', async (req, res) => {
         password : req.body.password,
     }
     const response = await auth.authenticate(login_data)
-    console.log(response);
+
     if (!response.authorized) {
         req.flash('error_msg', 'EMAIL OU SENHA INCORRETOS!')
         res.redirect('/login')
     } else {
         response.user.logged = true
-        res.redirect('/users/'+response.user._id)
+        response.user.save().then(user => {
+            res.redirect('/users/'+ user._id)
+        }).catch(err => {
+            console.log('deu merda no login');
+            res.redirect('/login')
+        })
     }
 })
 
@@ -36,9 +41,12 @@ router.get('/exit/:id', (req, res) => {
             res.redirect('/')
         }).catch(err => {
             console.log('deu merda filhão');
+            res.send('ai morri')
         })
-        res.redirect('/')
-    }).catch(console.error)
+  
+    }).catch(err => {
+        res.send('nao achei o usuario')
+    })
 })
 
 
