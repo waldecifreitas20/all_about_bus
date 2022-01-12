@@ -1,9 +1,14 @@
-<div class="container">
+<div id="container">
+   
     {{#each posts}}
-            <h2 class="container-card-post-title">Titulo: {{this.title}}</h2>
         <div class="container-card">
+            <h2 class="container-card-post-title">{{this.title}}</h2>   
             <p class="container-card-post-body">{{this.bodyText}}</p>
-        </div>
+            <div class="form-footer">
+                <button class="btn btn-success"><a href="">Editar</a></button>
+                <button class="btn btn-cancel"><a href="">Deletar</a></button>
+            </div>
+        </div>        
     {{else}}
         <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
     {{/each}}

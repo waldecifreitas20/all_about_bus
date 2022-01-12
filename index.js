@@ -42,8 +42,15 @@ const PostModel = require('./database/models/Post')
 //Routes
     //Main
     app.get('/', async (req, res) => {
-        await PostModel.find().then(posts => {            
-            res.render('posts', {posts : posts})
+        await PostModel.find().then(posts => {              
+            const postsData = []
+            for (let i = 0; i < posts.length; i++) {
+                postsData.push({
+                    title : posts[i].title,
+                    bodyText : posts[i].bodyText
+                })                
+            }       
+            res.render('posts', {posts : postsData})
         }).catch(err => {
             res.render('posts')
         })

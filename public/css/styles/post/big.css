@@ -1,0 +1,13 @@
+@media (min-width: 900px) {
+ 
+
+    .container-card {
+        border-color: black;
+        display: flex;
+        flex-direction: column;
+        background-color: coral;
+        width: 50%;
+        height: 200px;
+
+    }
+}

@@ -17,16 +17,15 @@ router.get('/:id', async (req, res) => {
                 logged : user.logged
             }
 
-            await PostModel.find().then(_posts => {
-                const posts = []
-                _posts.forEach(post => {
-                    posts.push({ 
-                        _id : post._id,
-                        title : post.title,
-                        body : post.body,
-                        date : post.date})
-                });
-                res.render('user/posts', {user : dataUser, posts : posts})
+            await PostModel.find().then(posts => {
+                const postsData = []
+                for (let i = 0; i < posts.length; i++) {
+                    postsData.push({
+                        title : posts[i].title,
+                        bodyText : posts[i].bodyText
+                    })                
+                }       
+                res.render('user/posts', {user : dataUser, posts : postsData})
             }).catch(err => {
                 res.send(err)
             })
@@ -48,10 +47,10 @@ router.get('/doapost/:id', async (req, res) => {
 })
 
 router.post('/doapost/add/:id', async (req, res) => {
-    const string = new String('ewwerewre')
+
     const postData = {
-        title : "asda",
-        bodyText : "sdse",
+        title : req.body.title,
+        bodyText : req.body.bodyText,
         date : Date.now()
     }
     let error;
@@ -65,7 +64,7 @@ router.post('/doapost/add/:id', async (req, res) => {
         req.flash('error_msg', 'Preencha os campos corretamente')
         res.redirect('/users/doapost/' + req.params.id)
     } else {
-         new PostModel(postData).save().then(post => {
+        await new PostModel(postData).save().then(() => {
             req.flash('success_msg', 'Post salvo com sucesso')
             res.redirect('/users/' + req.params.id)
         }).catch(err => {
