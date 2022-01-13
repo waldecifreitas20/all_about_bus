@@ -20,7 +20,7 @@ const PostModel = require('./database/models/Post')
     app.use(session({
         secret : 'segredo',
         saveUninitialized : true,
-        resave : true
+        resave : true,
     }))
     //Flash
     app.use(flash())

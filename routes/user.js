@@ -74,4 +74,8 @@ router.post('/doapost/add/:id', async (req, res) => {
     }
 })
 
+router.get('/:spam', (req, res) => {
+    res.sendFile(__dirname + '/views/notfound.html')
+    })
+
 module.exports = router

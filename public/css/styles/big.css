@@ -4,6 +4,7 @@
     }
     
     #container {
+        position: relative;
         text-align: center;
         justify-items: center;
         padding: 20px;
@@ -121,7 +122,7 @@
     .btn-success a {
         color: black;
     } 
-    .btn-cancel a {
+    .btn-cancel {
         color: white
     }
     .btn-success:hover {

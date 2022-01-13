@@ -1,15 +1,16 @@
 <div id="container">
-   
+    <section class="section-posts">
     {{#each posts}}
-        <div class="container-card">
-            <h2 class="container-card-post-title">{{this.title}}</h2>   
-            <p class="container-card-post-body">{{this.bodyText}}</p>
-            <div class="form-footer">
-                <button class="btn btn-success"><a href="">Editar</a></button>
-                <button class="btn btn-cancel"><a href="">Deletar</a></button>
-            </div>
-        </div>        
+        <article class="post">
+            <h2 class="title">{{this.title}}</h2>
+            <p class="text">{{this.bodyText}}</p>
+            <footer>
+                <a href="" class="btn btn-success">Editar</a>
+                <a href="" class="btn btn-cancel">Deletar</a>
+            </footer>
+        </article>
     {{else}}
         <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
     {{/each}}
+    </section>
 </div>

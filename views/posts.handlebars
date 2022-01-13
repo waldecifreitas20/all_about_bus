@@ -1,9 +1,9 @@
 <div id="container">
-    {{#each posts}}
-            <h2 class="container-card-post-title">Titulo: {{this.title}}</h2>
+        {{#each posts}}
         <div class="container-card">
-            <p class="container-card-post-body">Body: {{this.bodyText}}</p>
-        </div>
+            <h2 class="container-card-post-title">{{this.title}}</h2>   
+            <p class="container-card-post-body">{{this.bodyText}}</p>    
+        </div>        
     {{else}}
         <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
     {{/each}}
