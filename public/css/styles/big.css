@@ -1,15 +1,15 @@
 @media (min-width: 900px) {
     #page-landing {
-        height: 100vh;
+        min-height: 100vh;
     }
     
-    #container {
-        position: relative;
+    #container {     
         text-align: center;
+        min-height: 84vh;
         justify-items: center;
-        padding: 20px;
+        padding: 60px 20px 30px 20px;
         margin-top: 100px;
-        padding-top: 60px;
+        margin-bottom: 0px;       
         box-shadow: 1px -5px 10px var(--var-color-shadow);
     }
     
@@ -123,7 +123,13 @@
         color: black;
     } 
     .btn-cancel {
+        background-color: var(--var-color-error-background);
         color: white
+    }
+    .btn-cancel:hover {
+        color: var(--var-color-error-background);
+        background-color: white;
+        border-color: var(--var-color-error-background);
     }
     .btn-success:hover {
         color:black;
@@ -134,13 +140,9 @@
         background-color: var(--var-color-btn-red-background);
     }
 
-    .btn-cancel:hover {
-        background-color: var(--var-color-btn-red2-background);
-    }
-
     .form-post {
         display: block;
-        padding: 60px 10px;
+        padding: 0px 10px;
         width: 100%;
  
         display: flex;

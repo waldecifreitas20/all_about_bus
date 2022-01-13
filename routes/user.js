@@ -12,7 +12,7 @@ router.get('/:id', async (req, res) => {
         if (user.logged) {
             const dataUser = {
                 _id : user._id,
-                name : user.userName,
+                name : user.username,
                 email : user.email,
                 logged : user.logged
             }

@@ -1,10 +1,12 @@
 <div id="container">
-        {{#each posts}}
-        <div class="container-card">
-            <h2 class="container-card-post-title">{{this.title}}</h2>   
-            <p class="container-card-post-body">{{this.bodyText}}</p>    
-        </div>        
+    <section class="section-posts">
+    {{#each posts}}
+        <article class="post">
+            <h2 class="title">{{this.title}}</h2>
+            <p class="text">{{this.bodyText}}</p>
+        </article>
     {{else}}
         <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
     {{/each}}
+    </section>
 </div>
