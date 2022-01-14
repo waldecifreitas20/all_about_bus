@@ -66,5 +66,5 @@ li {
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }

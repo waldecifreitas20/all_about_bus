@@ -8,7 +8,8 @@ const flash = require('connect-flash')
 const bodyParser = require('body-parser')
 
 const loginRouter = require('./routes/login')
-const userRouter = require('./routes/user')
+const userRouter = require('./routes/user/user')
+
 const registerRouter = require('./routes/register')
 
 const PostModel = require('./database/models/Post')
@@ -65,6 +66,7 @@ const PostModel = require('./database/models/Post')
     app.use('/login', loginRouter)
     //User
     app.use('/users', userRouter)
+
     //Not Found
     app.get('/:spam', (req, res) => {
     res.sendFile(__dirname + '/views/notfound.html')

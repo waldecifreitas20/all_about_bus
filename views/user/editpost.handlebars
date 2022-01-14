@@ -1,0 +1,18 @@
+<div id="container">
+    <div class="form-div">
+
+        <form action="/users/post/save" method="post" id="form-post" class="form-post" on>
+            <legend>Editar Post</legend>
+            <input type="hidden" name="user_id" value="{{user._id}}">
+            <input type="hidden" name="post_id" value="{{post._id}}">
+            <input type="text" class="form-input" name="title" id="title" placeholder="Titulo" value="{{post.title}}">
+            <textarea name="bodyText" class="form-input" id="textBody" placeholder="Texto">{{post.bodyText}}</textarea>
+        </form>
+        <div class="form-footer">
+            <button type="submit" class="btn btn-success submit" form="form-post">Salvar</button>
+            <a href="/users/{{user._id}}" class="btn btn-cancel">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<script src="/js/post-submit.js"></script>

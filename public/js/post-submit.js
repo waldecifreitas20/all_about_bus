@@ -1,9 +1,9 @@
-const Title = document.querySelector('#title')
-const postBody = document.querySelector('#postBody')
+const postTitle = document.querySelector('#title')
+const postBody = document.querySelector('#textBody')
 var title, body;
 
 postTitle.addEventListener('keydown', () => {
-    if (postTitle.value.length < 10) {
+    if (postTitle.value.length < 20) {
         title = postTitle.value 
     } else {
         postTitle.value = title
@@ -18,4 +18,3 @@ postBody.addEventListener('keyup', () => {
         alert('O título não pode conter mais que 500 caracteres!')
     }
 })
-
