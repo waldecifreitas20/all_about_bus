@@ -5,10 +5,13 @@
         <div class="articles-block">
             {{#each posts}}
                 <article class="post">
+                    <form action="/users/edit" id="post-form" method="post">
+                        <input type="hidden" name="post_id" value="{{this.id}}">
+                    </form>
                     <h2 class="title h2">{{this.title}}</h2>
                     <p class="text">{{this.bodyText}}</p>
                     <footer class="small-footer">
-                        <a href="" class="btn btn-success">Editar</a>
+                        <button form="post-form" id="btn-edit" class="btn btn-success">Editar</button>
                         <a href="" class="btn btn-cancel">Deletar</a>
                     </footer>
                 </article>
@@ -18,3 +21,5 @@
         </div>
     </section>
 </div>
+
+<script src="/js/post-submit.js"></script>

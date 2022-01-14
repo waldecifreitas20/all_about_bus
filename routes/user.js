@@ -3,7 +3,11 @@ const router = express.Router()
 const UserModel = require('../database/models/User')
 const PostModel = require('../database/models/Post')
 const { isLogged } = require('../database/auth/auth')
+import random from Math
 
+function randomId() {
+    return 
+}
 
 const bad_request = 'Faça login para acessar essa página'
 router.get('/:id', async (req, res) => {
@@ -21,9 +25,10 @@ router.get('/:id', async (req, res) => {
                 const postsData = []
                 for (let i = 0; i < posts.length; i++) {
                     postsData.push({
+                        id : posts[i]._id,
                         title : posts[i].title,
                         bodyText : posts[i].bodyText
-                    })                
+                    })   
                 }       
                 res.render('user/posts', {user : dataUser, posts : postsData})
             }).catch(err => {
@@ -72,6 +77,11 @@ router.post('/doapost/add/:id', async (req, res) => {
             res.redirect('/users/doapost/' + req.params.id)
         })
     }
+})
+
+
+router.post('/edit', (req, res) => {
+    res.send(req.body.post_id)
 })
 
 router.get('/:spam', (req, res) => {

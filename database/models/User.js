@@ -11,11 +11,12 @@ const userSchema = db.Schema({
     },
     password : {
         type : String,
-        require : true
+        require : true,
+        unique : true
     },
     admin : {
         type : Boolean,
-        require : false
+        require : false,
     },
     logged : {
         type : Boolean,

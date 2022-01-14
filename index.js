@@ -29,7 +29,6 @@ const PostModel = require('./database/models/Post')
         res.locals.success_msg = req.flash('success_msg')
         res.locals.error_msg = req.flash('error_msg')
         res.locals.site_title = req.flash('site_title')
-        res.locals.userLogged = req.flash('userlogged')
         next()
     })
     //Handlebars
