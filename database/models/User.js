@@ -7,12 +7,12 @@ const userSchema = db.Schema({
     },
     email : {
         type : String,
-        require : true
+        require : true,
+        unique : true
     },
     password : {
         type : String,
         require : true,
-        unique : true
     },
     admin : {
         type : Boolean,

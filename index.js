@@ -13,6 +13,10 @@ const userRouter = require('./routes/user/user')
 const registerRouter = require('./routes/register')
 
 const PostModel = require('./database/models/Post')
+const { features } = require('process')
+
+const postServices = require('./database/api/post_services')
+
 //Settings
     //Body-parser
     app.use(bodyParser.urlencoded({extended: false}))
@@ -42,24 +46,27 @@ const PostModel = require('./database/models/Post')
 //Routes
     //Main
     app.get('/', async (req, res) => {
-        await PostModel.find().then(posts => {              
-            const postsData = []
-            for (let i = 0; i < posts.length; i++) {
-                postsData.push({
-                    title : posts[i].title,
-                    bodyText : posts[i].bodyText
-                })                
-            }       
-            res.render('posts', {posts : postsData})
-        }).catch(err => {
-            res.render('posts')
-        })
+        const posts = await postServices.getPosts()
+            res.render('posts', {posts : posts , user : {logged : false}})
     })
 
     app.get('/posts', (req, res) => {
         req.flash('success_msg', 'Página atualizada com sucesso')
         res.redirect('/')
     })
+    
+    app.get('/search', async (req, res) => {
+        const title = req.query.title
+        
+        const matchs = await postServices.getPostByTitle(title)
+        console.log('ta na rota main');
+        if (matchs[0]._error) {
+            res.render('results', {search : title, posts : false})
+        }
+
+        res.render('results', {search: title, posts : matchs})
+    })
+        
     //Register
     app.use('/register', registerRouter)
     //Login

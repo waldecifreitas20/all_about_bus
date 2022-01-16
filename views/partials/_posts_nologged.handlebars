@@ -1,0 +1,13 @@
+<div class="articles-block">
+    {{#each posts}}
+        <article class="post">           
+            <input type="hidden" name="post_id" value="{{this._id}}">
+            <header class="post-header">
+                <h2 class="title h2">{{this.title}}</h2>
+            </header>
+                <p class="text">{{this.bodyText}}</p>
+        </article>
+    {{else}}
+        <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
+    {{/each}}
+</div>

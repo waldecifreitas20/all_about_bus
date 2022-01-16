@@ -1,0 +1,23 @@
+<div id="user_id" class="hidden">{{user._id}}</div>
+<div class="articles-block">
+    {{#each posts}}
+        <article class="post">
+            <form action="" id="{{this._id}}" class="post-form" method="post">
+                <input type="hidden" name="post_id" value="{{this._id}}">
+            </form>
+            <header class="post-header">
+                <h2 class="title h2">{{this.title}}</h2>
+            </header>
+                <p class="text">{{this.bodyText}}</p>
+            <footer class="small-footer">
+                <button form="{{this._id}}" class="btn btn-success btn-edit">Editar</button>
+                <button form="{{this._id}}" class="btn btn-cancel btn-delete">Deletar</button>
+            </footer>
+        </article>
+    {{else}}
+        <div class="container-empty-card">Nenhuma Postagem cadastrada</div>
+    {{/each}}
+</div>
+
+
+<script src="/js/home.js"></script>

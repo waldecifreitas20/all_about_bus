@@ -33,11 +33,12 @@ router.post('/authenticate', async (req, res) => {
 })
 
 
-router.get('/exit/:id', (req, res) => {
+router.get('/exit/:id', async (req, res) => {
     const id = req.params.id
-    UserModel.findOne({_id : id}).then(user => {
+
+    await UserModel.findOne({_id : id}).then(async user => {
         user.logged = false
-        user.save().then(() => { 
+        await user.save().then(() => { 
             res.redirect('/')
         }).catch(err => {
             console.log('deu merda filhão');

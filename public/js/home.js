@@ -30,7 +30,7 @@ for (let i = 0; i < btns_delete.length; i++) {
 
         form_submit.action = "/users/post/del"
         form_submit.appendChild(input)
-        console.log(form_submit);
+        alert(form_submit.action);
         form_submit.submit()
     })    
 }

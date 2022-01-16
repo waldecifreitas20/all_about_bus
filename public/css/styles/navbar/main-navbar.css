@@ -8,4 +8,5 @@
     background-color: var(--var-color-orange-primary);
     box-shadow: 1px 5px 10px var(--var-color-shadow);
     z-index: 2;
+    text-transform: capitalize;
 }

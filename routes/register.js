@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.post('/add', async (req, res) => {
     const userData = {
-        username : req.body.username,
+        username : req.body.username.toLowerCase(),
         email : req.body.email,
         password : req.body.password,
         logged : true
@@ -34,9 +34,10 @@ router.post('/add', async (req, res) => {
         const isExist = await auth.checkEmailExistence(userData.email)
 
         if (!isExist) {
-            new UserModel(userData).save().then((user) => {
+            await new UserModel(userData).save().then((user) => {
                 res.redirect(`/users/${user._id}`)
             }).catch(err => {
+             
                 req.flash('error_msg', 'Erro ao salvar no banco')
                 res.redirect('/')
             })
@@ -48,7 +49,8 @@ router.post('/add', async (req, res) => {
 })
 
 router.get('/:spam', (req, res) => {
+    console.log(req.params.spam);
     res.sendFile(__dirname + '/views/notfound.html')
-    })
+})
 
 module.exports = router

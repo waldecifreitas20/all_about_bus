@@ -1,8 +1,9 @@
 <div id="container">
+    <header class="container-header">
+        <h1 class="title h1">Exibindo resultados para "{{search}}"</h1>
+    </header>
     <section class="section-post">
         {{#if user.logged}}
-            <h1 class="title h1">Bem vindo, {{user.username}} !</h1>
-            <h2 class="subtitle">Últimas notícias: </h2>
             {{>_posts}}            
         {{else}}
             {{>_posts_nologged}}

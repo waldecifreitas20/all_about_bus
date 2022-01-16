@@ -8,12 +8,18 @@
             <ul class="navbar-menu">
                 <li class="navbar-menu-item"><a href="/users/{{user._id}}">Home</a></li>
                 <li class="navbar-menu-item"><a href="#">Mudar Senha</a></li>
-                <li class="navbar-menu-item"><a href="/users/post/{{user._id}}">Fazer postagem</a></li>
+                <li class="navbar-menu-item"><a href="/users/post/{{user._id}}/create">Fazer postagem</a></li>
                 <li class="navbar-menu-item"><a href="/login/exit/{{user._id}}">Sair</a></li>
             </ul>
         </div>
    </div>
-  
+  <div class="navbar-right">
+        <div class="navbar-search-block">
+            <form action="/users/post/search/{{user._id}}" method="get">
+                <input type="text" name="title" class="navbar-input-search" placeholder="Buscar por titulo">
+                <input type="submit" class="navbar-btn" value="Pesquisar">
+            </form>
+        </div>
 {{else}}
     <div class="navbar-left">
         <a href="/" class="navbar-logo">
@@ -23,18 +29,19 @@
             <ul class="navbar-menu">
                 <li class="navbar-menu-item"><a href="/">Home</a></li>
                 <li class="navbar-menu-item"><a href="/register">Cadastrar-se</a></li>
+    
                 <li class="navbar-menu-item"><a href="/login">Fazer Login</a></li>
             </ul>
         </div>
    </div>
-{{/if}} 
     <div class="navbar-right">
         <div class="navbar-search-block">
-            <form action="/search-post" method="get">
-                <input type="text" class="navbar-input-search" placeholder="Buscar por titulo">
-                <button class="navbar-btn">Pesquisar</button>
+            <form action="/search" method="get">
+                <input type="text" name="title" class="navbar-input-search" placeholder="Buscar por titulo">
+                <input type="submit" class="navbar-btn" value="Pesquisar">
             </form>
         </div>
+{{/if}} 
         
     </div>
 
